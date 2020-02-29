@@ -1,5 +1,5 @@
 var request = new XMLHttpRequest()
-request.open('GET','https://aqs.epa.gov/data/api/monitors/byState?email=&key=&param=88101,42101,42602,44201&bdate=20150501&edate=20200101&state=24', true)
+request.open('GET','https://aqs.epa.gov/data/api/monitors/byState?email=rachelwu.47@gmail.com&key=aquahawk43&param=88101,42101,42602,44201&bdate=20150501&edate=20200101&state=24', true)
 
 const ozone = document.getElementById('OZ')
 const co = document.getElementById('CO')

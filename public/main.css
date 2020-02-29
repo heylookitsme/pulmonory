@@ -1,3 +1,7 @@
+:root {
+    font-family: "Comic Sans", sans-serif;
+}
+    
 #map {
     height: 100vh;
 }
