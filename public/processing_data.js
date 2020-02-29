@@ -10,34 +10,18 @@ co.setAttribute('class', 'container')
 no2.setAttribute('class', 'container')
 so2.setAttribute('class', 'container')
 
-//should have just auto generated these instead of being stupid but there you go 
 request.onload = function() {
 var data = JSON.parse(this.response)
 if (request.status >= 200 && request.status < 400) {
+
 	data['Data'].forEach((element) =>{
-	var req = new XMLHttpRequest()
-	caddr = element.county_name.split(" ").filter(function(e){return e});
-	req.open('GET', 'https://pixabay.com/api/?key=&q='+caddr[0]+'&image_type=photo', true)
-	
-	var imag = "http://fotw.fivestarflags.com/images/m/mn1.gif"
-	req.onload = function() {
-	var data = JSON.parse(this.response)
-	if (data['hits'][0]==null){
-		imag = "http://fotw.fivestarflags.com/images/m/mn1.gif";
-	}else{
-		imag = data['hits'][0].webformatURL;
-	}
-	}
-	req.send()
+
 	const station = document.createElement('div');
 		station.setAttribute('class', 'station');
 		const p = document.createElement('p');
 		p.textContent = element.address + "; " + element.county_name + " county";
-		const h1 = document.createElement("h1");
-		h1.textContent = element.longitude + " " + element.longitude;
-		const statimg = document.createElement('img');
-		statimg.setAttribute("width","200px");
-		statimg.src=imag;
+		const h3 = document.createElement("h3");
+		h3.textContent = element.local_site_name + ": " +element.monitoring_agency;
 		if (element.parameter_code=="88101"){	
 			no2.appendChild(station);
 		}else if (element.parameter_code=="42101"){
@@ -47,9 +31,28 @@ if (request.status >= 200 && request.status < 400) {
 		}else if (element.parameter_code=="44201"){
 			ozone.appendChild(station);
 		}
-		station.appendChild(h1);
+		station.appendChild(h3);
 		station.appendChild(p);
-		station.appendChild(statimg);
+
+	var req = new XMLHttpRequest()
+	caddr = element.county_name.split(" ").filter(function(e){return e});
+	req.open('GET', 'https://pixabay.com/api/?key=&q='+caddr[0]+'&image_type=photo', true)
+	var imag = "http://fotw.fivestarflags.com/images/m/mn1.gif"
+	req.onload = function() {
+	var data = JSON.parse(this.response)
+	if (data['hits'][0]==null){
+		imag = "http://fotw.fivestarflags.com/images/m/mn1.gif";
+	}else{
+		imag = data['hits'][0].previewURL;
+	}
+	const statimg = document.createElement('img');
+	statimg.setAttribute("width","200px");
+	statimg.src=imag;
+	station.appendChild(statimg);
+
+	}
+	req.send()
+	
 	})
 
 }else {

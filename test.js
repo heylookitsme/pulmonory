@@ -20,6 +20,7 @@ app.get('/md-current-data', (req, res) => {
     .then((response) => response.json())
     .then((data) => {
         res.setHeader('Content-Type', 'application/json');
+	res.header("Access-Control-Allow-Origin", "*");
         res.end(JSON.stringify(data));
     })
     .catch((error) => {
