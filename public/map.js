@@ -27,5 +27,5 @@ fetch("/md-current-data")
             stuff.push([point["Latitude"], point["Longitude"], (point["Value"] - min) / (max - min)]);
             L.marker([point["Latitude"], point["Longitude"]]).addTo(map);
         }
-        L.idwLayer(stuff, { opacity: 0.3, cellSize: 15, gradient: { 0: "blue", 1: "red" } }).addTo(map);
+        L.idwLayer(stuff, { opacity: 0.3, exp: 3, cellSize: 15, gradient: { 0.6: "white", 0.7: "black" } }).addTo(map);
     });
