@@ -1,6 +1,14 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="./main.css">
+		<link rel="stylesheet" type="text/css" href="./main.css"/>
+
+		<!-- Leaflet stuff -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+			integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+			crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+			integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+			crossorigin=""></script>
 	</head>
 	<body>
 		<h1>How liable are you to ingesting some Tainted Air in Maryland?</h1>
@@ -13,6 +21,11 @@
 		<div id="NO"></div>
 		<h2>all the Ozone monitoring stations in MD</h2>
 		<div id="OZ"></div>
-	<script src="./processing_data.js"></script> 
+
+		<div id="map"></div>
+
+		<script src="./processing_data.js"></script>
+		<script src="leaflet-idw.js"></script>
+		<script src="map.js"></script>
 	</body>
 </html>
