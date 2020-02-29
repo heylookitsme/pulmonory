@@ -36,7 +36,7 @@ if (request.status >= 200 && request.status < 400) {
 
 	var req = new XMLHttpRequest()
 	caddr = element.county_name.split(" ").filter(function(e){return e});
-	req.open('GET', 'https://pixabay.com/api/?key=&q='+caddr[0]+'&image_type=photo', true)
+	req.open('GET', 'https://pixabay.com/api/?key=q='+caddr[0]+'&image_type=photo', true)
 	var imag = "http://fotw.fivestarflags.com/images/m/mn1.gif"
 	req.onload = function() {
 	var data = JSON.parse(this.response)
